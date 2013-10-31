@@ -1,0 +1,25 @@
+<div class="container">
+  <body background="http://upload.wikimedia.org/wikipedia/commons/e/e9/Sombrero_Galaxy_in_infrared_light_(Hubble_Space_Telescope_and_Spitzer_Space_Telescope).jpg">
+
+<h1> Post page for tag:</h1>
+<h2><%= params[:splat].first %></h2>
+<% tag = Tag.find_by_name(params[:splat])%>
+<% tag.posts.each do |post| %>
+<form action="/delete/<%= post.title %>" method="get">
+ <table><h3> Post Title: <%= post.title%></h3>
+  <input type="submit" value="Delete">
+
+        <p>  Post Description: <%= post.content %></p>
+
+        <p> Other Tags for post: <% post.tags.each do |tag| %>
+          <a href="/tag/<%=tag.name %>">  <%=tag.name %></a>
+          <% end %>
+      </table>
+      </form>
+      <%end %>
+
+<form action="/" method="get">
+  <input type="submit" value="Return Home">
+</form>
+    </div>
+

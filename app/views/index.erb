@@ -1,0 +1,13 @@
+<div class="container">
+  <body background="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Desert_de_Retz_Grass.jpg/800px-Desert_de_Retz_Grass.jpg">
+  <h1>The coolest blog in the world!</h1>
+  <h2>Most active tags</h2>
+  <% Tag.all.each do |tag|%>
+  <p><a href="/tag/<%=tag.name %>"><%=tag.name %></a></p>
+  <%end %>
+<form action="/ep" method="get">
+  <input type="submit" value="Enter New Post">
+</form>
+</div>
+
+
