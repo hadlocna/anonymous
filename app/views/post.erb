@@ -3,8 +3,9 @@
 
 <h1> Post page for tag:</h1>
 <h2><%= params[:splat].first %></h2>
-<% tag = Tag.find_by_name(params[:splat])%>
-<% tag.posts.each do |post| %>
+<% user = User.find_by_id(session[:id]) %>
+<% posts = user.posts %>
+<% posts.each do |post| %>
 <form action="/delete/<%= post.title %>" method="get">
  <table><h3> Post Title: <%= post.title%></h3>
   <input type="submit" value="Delete">
@@ -18,8 +19,12 @@
       </form>
       <%end %>
 
-<form action="/" method="get">
+<form action="/home" method="get">
   <input type="submit" value="Return Home">
 </form>
+<p>
+<form action="/logout" method="get">
+  <input type="submit" value="Logout">
+</form></p>
     </div>
 

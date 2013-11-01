@@ -1,0 +1,20 @@
+<div class="container">
+  <body background="http://www.funawake.com/wp-content/uploads/2013/03/Phoenix-Ash-Beautiful-Burn-Colorful-Fire-Rainbow-1200x1920.jpg">
+  <h1>Login to enjoy the coolest blog in the world!</h1>
+
+<% if session[:login] %>
+<h2> You just entered an incorrect password or email </h2>
+<% end %>
+
+<form action="/login" method="post">
+<label for="email">Email: </label>
+<input id="email" name="email" >
+<label for="password">Password: </label>
+<input id="password" name="password" >
+  <input type="submit" value="login">
+</form>
+<p>
+<form action="/create_account" method="get">
+  <input type="submit" value="create_account">
+</form></p>
+</div>

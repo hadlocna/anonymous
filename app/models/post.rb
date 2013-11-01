@@ -3,4 +3,5 @@ class Post < ActiveRecord::Base
   has_many :tags, through: :posts_tags
   validates :content, :presence => true
   validates :title, :presence => true
+  belongs_to :user
 end
